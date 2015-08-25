@@ -1,9 +1,9 @@
 var Pagination = {};
 
-Pagination.postSorter = function (arr) {
+Pagination.postSorter = function (cb) {
   return arr.sort(function (a, b) {
     return a.date - b.date;
-  }).reverse();
+  }).reverse(cb);
 }
 
 Pagination.tenAtATime = function (cursor, i) {
