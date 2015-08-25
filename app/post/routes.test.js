@@ -49,7 +49,8 @@ describe('Post Routes', function () {
 
         request(app)
           .post('/post')
-          .field('text', 'Baz')
+          .type('form')
+          .send({text: 'Baz'})
           .expect(302)
           .expect('Moved Temporarily. Redirecting to /')
           .end(function (err) {
@@ -60,6 +61,17 @@ describe('Post Routes', function () {
             });
           });
       });
+    });
+
+    it('should display the created post', function (done) {
+      request(app)
+        .get('/')
+        .expect(200)
+        .end(function (err, res) {
+          if (err) throw err;
+          expect(res.text).to.contain('Baz');
+          done();
+        });
     });
   });
 
