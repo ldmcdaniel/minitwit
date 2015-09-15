@@ -20,9 +20,8 @@ In the top-right corner of the page, click Fork.
 
 In your designated code directory, type:
 
-`git clone https://github.com/Your-Username/minitwit`
-
 ```sh
+git clone https://github.com/Your-Username/minitwit
 cd minitwit
 npm install
 node index.js
